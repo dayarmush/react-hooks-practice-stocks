@@ -1,6 +1,17 @@
-import React from "react";
+import { useState } from "react";
 
-function SearchBar() {
+function SearchBar({alphabetically, setAlphabetically, price, setPrice}) {
+
+  function handleChangeA(e) {
+    if (e.target.value === "Alphabetically") {
+      setAlphabetically(pre => !pre)
+      setPrice(false)
+    } else {
+      setPrice(pre => !pre)
+      setAlphabetically(false)
+    }
+  }
+
   return (
     <div>
       <strong>Sort by:</strong>
@@ -9,8 +20,8 @@ function SearchBar() {
           type="radio"
           value="Alphabetically"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={alphabetically}
+          onChange={handleChangeA}
         />
         Alphabetically
       </label>
@@ -19,8 +30,8 @@ function SearchBar() {
           type="radio"
           value="Price"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={price}
+          onChange={handleChangeA}
         />
         Price
       </label>

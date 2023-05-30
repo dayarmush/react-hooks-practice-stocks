@@ -4,7 +4,6 @@ import Stock from "./Stock";
 function PortfolioContainer({ portfolio, setPortfolio }) {
 
   function handlePortDelete(id) {
-    console.log(id, 'from port')
     setPortfolio(pre => pre.filter(port => port.id !== id))
   }
 

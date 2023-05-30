@@ -7,6 +7,8 @@ function MainContainer() {
 
   const [stocks, setStocks] = useState([])
   const [portfolio, setPortfolio] = useState([])
+  const [alphabetically, setAlphabetically] = useState(false)
+  const [price, setPrice] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3001/stocks')
@@ -25,13 +27,26 @@ function MainContainer() {
 
   return (
     <div>
-      <SearchBar />
+      <SearchBar 
+        alphabetically={alphabetically}
+        setAlphabetically={setAlphabetically} 
+        price={price}
+        setPrice={setPrice}
+      />
       <div className="row">
         <div className="col-8">
-          <StockContainer stocks={stocks} handleClick={handlePurchase} />
+          <StockContainer
+            stocks={stocks}
+            handleClick={handlePurchase}
+            price={price}
+            alphabetically={alphabetically}
+          />
         </div>
         <div className="col-4">
-          <PortfolioContainer  portfolio={portfolio} setPortfolio={setPortfolio} />
+          <PortfolioContainer
+            portfolio={portfolio}
+            setPortfolio={setPortfolio}
+          />
         </div>
       </div>
     </div>
