@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({alphabetically, setAlphabetically, price, setPrice}) {
+function SearchBar({alphabetically, setAlphabetically, price, setPrice, setFilter}) {
 
   function handleChangeA(e) {
     if (e.target.value === "Alphabetically") {
@@ -10,6 +10,10 @@ function SearchBar({alphabetically, setAlphabetically, price, setPrice}) {
       setPrice(pre => !pre)
       setAlphabetically(false)
     }
+  }
+
+  function handleChangeB(e) {
+    setFilter(e.target.value)
   }
 
   return (
@@ -38,7 +42,7 @@ function SearchBar({alphabetically, setAlphabetically, price, setPrice}) {
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleChangeB}>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
