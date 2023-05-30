@@ -31,7 +31,7 @@ function MainContainer() {
           <StockContainer stocks={stocks} handleClick={handlePurchase} />
         </div>
         <div className="col-4">
-          <PortfolioContainer  portfolio={portfolio} stocks={stocks} />
+          <PortfolioContainer  portfolio={portfolio} setPortfolio={setPortfolio} />
         </div>
       </div>
     </div>
